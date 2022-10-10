@@ -1,15 +1,195 @@
-canvas{
-  width: 800px;
-  height: 800px;
-  border: 5px solid black;
-}
-body{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.color-option{
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
+@import "reset.css";
+html{
+  height: 100%;
+  body{
+    height: 100%;
+    width: 100%;
+    background-color: #dadfe5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .color-options{
+      background-color: #b6d7ff;
+      border-right: 2px solid #a8bed7;
+      width: 170px;
+      height: 100%;
+      left: 0;
+      .color-inner{
+        width: 170px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2vh;
+        align-items: center;
+        justify-content: center;
+        .select-color{
+          cursor: pointer;
+          width: 100px;
+          height: 50px;
+          background-color: white;
+          padding: 2px 3px;
+          box-shadow: 2px 3px 14px -3px;
+          transition: ease-in-out all .1s;
+          #color{
+            all:unset;
+          }
+          &:hover{
+            scale: 1.1;
+          }
+        }
+        .select{
+          position: relative;
+          top: -16px;
+          font-weight: bold;
+          font-size: 18px;
+          color: white;
+          text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+        }
+        .color-option{
+          border: 5px solid white;
+          border-radius: 100%;
+          width: 100px;
+          height: 50px;
+          cursor: pointer;
+          box-shadow: 2px 3px 14px -3px;
+          transition: all ease-in-out .1s;
+          &:hover{
+            scale: 1.1;
+          }
+        }
+      }
+    }
+    .canvas{
+      display: flex;
+      margin: auto;
+      width: 800px;
+      padding: 20px 200px 20px 20px;
+      overflow: auto;
+      canvas{
+        width: 800px;
+        height: 800px;
+        border-radius: 20px;
+        background-color: white;
+      }
+    }
+
+    .options{
+      width: 272px;
+      height: 494px;
+      display: flex;
+      position: fixed;
+      align-items: center;
+      right: 0;
+      transition: all ease-in-out .5s;
+      .slide{
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: -30px;
+        color: white;
+        font-size: 20px;
+        text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+        width: 200px;
+        padding: 10px;
+        background-color: #b6d7ff;
+        border-radius: 10px;
+        border: 2px solid #a8bed7;
+        transition: all ease-in-out .5s;
+      }
+      .option-box{
+        z-index: 2;
+        position: absolute;
+        right: 0;
+        background-color: #b6d7ff;
+        width: 200px;
+        height: 490px;
+        padding: 0 20px;
+        margin-right: 20px;
+        border-radius: 0 10px 10px 10px;
+        border: 2px solid #a8bed7;
+        .option-box-inner{
+          position: relative;
+          top: 12px;
+          margin: auto;
+          width: inherit;
+          height: auto;
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+          button{
+            all:unset;
+            cursor: pointer;
+            padding: 5px;
+            font-size: 20px;
+            font-weight: 800;
+            text-align: center;
+            border-radius: 5px;
+            background-color: cornflowerblue;
+            text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+            color: white;
+            transition: opacity linear .2s;
+            &:hover{
+              opacity: 0.85;
+            }
+          }
+          #text{
+            all:unset;
+            padding: 5px;
+            height: 20px;
+            font-weight: 800;
+            text-align: center;
+            border-radius: 5px;
+            background-color: white;
+          }
+          .pencil{
+            text-align: center;
+            position: relative;
+            top: 20px;
+            font-weight: 800;
+            color: #4f4f4f;
+          }
+          .how-stamp{
+            position: relative;
+            top: -24px;
+            font-size: 12px;
+            font-weight: 800;
+            text-align: center;
+            color: #414141;
+          }
+          #save{
+            position: relative;
+            top: -30px;
+          }
+          #file{
+            display: none;
+          }
+          label{
+            cursor: pointer;
+            padding: 5px;
+            font-size: 20px;
+            font-weight: 800;
+            text-align: center;
+            border-radius: 5px;
+            background-color: cornflowerblue;
+            text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+            color: white;
+            transition: opacity linear .2s;
+            &:hover{
+              opacity: 0.85;
+            }
+          }
+        }
+      }
+    }
+    &.slide-off{
+      .options{
+        right: -264px;
+        .slide{
+          top: 50%;
+          transform: translateY(-50%);
+          padding: 50px 10px;
+        }
+      }
+    }
+  }
 }
